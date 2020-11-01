@@ -14,9 +14,6 @@ public static String getName(Book book){
 
 public static long daysOfLoan(Book book) {
     LocalDate today = LocalDate.now();
-    System.out.println("Current date: " + today);
-    //LocalDate dateOfLoan = LocalDate.of(2020, Month.OCTOBER, 20 );
-    System.out.println("Day of loan: " + book.dateOfLoan);
     return ChronoUnit.DAYS.between(book.dateOfLoan, today);
  }
 
