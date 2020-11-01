@@ -4,18 +4,20 @@ import java.time.temporal.ChronoUnit;
 import java.util.Calendar;
 
 public class Book {
+    private static Book book;
     String title;
     String author;
     double price;
+    LocalDate dateOfLoan;
 
 public static String getName(Book book){ return "Titel: " + book.title + "\nAuthor:  " + book.author +"\nPrice: " +  book.price;}
 
 public static long daysOfLoan(Book book) {
     LocalDate today = LocalDate.now();
     System.out.println("Current date: " + today);
-    LocalDate dateOfLoan = LocalDate.of(2020, Month.OCTOBER, 20 );
-    System.out.println("Day of loan: " + dateOfLoan);
-    return ChronoUnit.DAYS.between(dateOfLoan, today);
+    //LocalDate dateOfLoan = LocalDate.of(2020, Month.OCTOBER, 20 );
+    System.out.println("Day of loan: " + book.dateOfLoan);
+    return ChronoUnit.DAYS.between(book.dateOfLoan, today);
 
  }
 
@@ -24,7 +26,7 @@ public static long daysOfLoan(Book book) {
      String message;
      if (Loan <=21)
          message = "no late loan";
-     else (Loan > 21)
+     else
          message = "late!";
      return message;
  }
